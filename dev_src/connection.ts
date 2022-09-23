@@ -1,16 +1,19 @@
 import { DataSource } from "typeorm";
 import 'reflect-metadata';
 import {User} from './entities/user'
-
+import dotenv from 'dotenv';
+const {parsed,error}=dotenv.config({path:'./dev_src/.env'})
+// console.log(process.env.username,'hai')
+const pe=process.env
 const AppDataSource=new DataSource({
-    type: 'postgres',
-    host: 'localhost',
+    type:'postgres', 
+    host: pe.host,
     port: 9999,
     username: 'postgres',
-    password: 'kali2001', //sensitive Information 
+    password: 'kali2001', //sensitive Information  
     database: 'typeORM_db',
     entities:[User], //if i write directly address here it is not working
-    synchronize: true,
+    synchronize: false,
     logging: true,
 })
 AppDataSource.initialize() //Initializing our connection to the database 
