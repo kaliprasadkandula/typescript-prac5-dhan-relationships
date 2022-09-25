@@ -15,12 +15,17 @@
   },
   "name": "typescript-prac4-dhan",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.js",  
+ 
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev": "nodemon ./dev_src/app.ts",
-    "start:prod": "nodemon ./dist/app.js",
-    "build": "tsc -p ."
+    "start:dev": "ts-node dev_src/app.ts",
+    "start:dist": "ts-node dist/app.js",
+    "build": "tsc -p .",
+    "typeorm": "typeorm-ts-node-commonjs",
+    "typeorm:cli": "ts-node ./node_modules/typeorm/cli -f ./src/ormconfig.ts",
+    "migration:create":"ts-node --transpileOnly ./node_modules/typeorm/cli.js migration:create dev_src/migrations/ ",
+    "migration:generate":"ts-node --transpileOnly ./node_modules/typeorm/cli.js migration:generate dev_src/migrations/init -d dev_src/connection.ts",
+    "migration:run":"ts-node --transpileOnly ./node_modules/typeorm/cli.js migration:run -d dev_src/connection.ts "
   },
   "keywords": [],
   "author": "",

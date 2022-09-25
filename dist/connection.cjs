@@ -18,7 +18,7 @@ const AppDataSource = new typeorm_1.DataSource({
     database: 'typeORM_db',
     entities: ['./dev_src/entities/*Entity.{ts,js}'],
     migrations: ['./dev_src/migrations/*.ts'],
-    synchronize: true,
+    synchronize: false,
     logging: true,
 });
 AppDataSource.initialize() //Initializing our connection to the database 

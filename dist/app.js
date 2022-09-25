@@ -5,12 +5,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 require("reflect-metadata");
-const User = require('./entities/user');
+// require('dotenv').config();
+const user_router = require('./routes/user_router');
 const path_for_connection = '../dev_src/connection';
-const AppDataSource = require(path_for_connection);
+const AppDataSource = require(path_for_connection); //This AppDataSource has to be imported here inorder to make connection
+// console.log(process.env)
 const app = (0, express_1.default)();
-const port = 3000;
+// const port:number= 3000;
+const port = process.env.PORT;
 app.use(express_1.default.json());
+app.use('/users', user_router);
 const welcome_msg = 'Our company';
 app.get('/', (req, res) => {
     res.send(`welcome to ${welcome_msg}`);

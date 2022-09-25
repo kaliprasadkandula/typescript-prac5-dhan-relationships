@@ -7,10 +7,10 @@ export class User {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({ type: "text", nullable: false })
+    @Column({ type: "text", nullable: true })
     name: string;
 
-    @Column({ type: "text", nullable: false })
-    email: string;
+    @Column({ type: "text", nullable: true })
+    Gmail: string;
 
 }
