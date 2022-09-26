@@ -10,7 +10,6 @@ export const AppDataSource=new DataSource({
     username: 'postgres',
     password: 'kali2001', //sensitive Information 
     database: 'postgres',
-    // entities: [__dirname + '/**/*Entity.js'],
     entities:['dev_src/entities/*Entity.{ts,js}'], //if i write directly address here it is not working
     migrations:['dev_src/migrations/*.ts'],
     synchronize: false,
