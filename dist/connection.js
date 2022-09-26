@@ -11,7 +11,6 @@ exports.AppDataSource = new typeorm_1.DataSource({
     username: 'postgres',
     password: 'kali2001',
     database: 'postgres',
-    // entities: [__dirname + '/**/*Entity.js'],
     entities: ['dev_src/entities/*Entity.{ts,js}'],
     migrations: ['dev_src/migrations/*.ts'],
     synchronize: false,

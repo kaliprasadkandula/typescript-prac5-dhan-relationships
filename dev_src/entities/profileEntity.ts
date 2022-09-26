@@ -10,7 +10,7 @@ export class Profile extends BaseEntity {
     @Column({ type: "text", nullable: true })
     gender: string;
 
-    @Column({ type: "number", nullable: true })
+    @Column({ type: "integer", nullable: true })
     age: number;
 
 }

@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const userEntity_1 = require("../entities/userEntity");
+const profileEntity_1 = require("../entities/profileEntity");
 const user_router = express_1.default.Router();
 const { AppDataSource } = require('../connection');
 // console.log(AppDataSource,'inside user router')
@@ -38,10 +39,17 @@ user_router.delete('/:id', async (req, res) => {
 user_router.post('/', async (req, res) => {
     const rb = req.body;
     const user_repo = await AppDataSource.getRepository(userEntity_1.User);
+    const profile_repo = await AppDataSource.getRepository(profileEntity_1.Profile);
+    const profile_entity = new profileEntity_1.Profile();
+    profile_entity.gender = rb.gender;
+    profile_entity.age = rb.age;
+    // const inserted_profile=await profile_repo.save(profile_entity)
     const user_entity = new userEntity_1.User();
     user_entity.name = rb.name;
     user_entity.Gmail = rb.Gmail;
-    user_repo.save(user_entity);
+    // user_entity.profile=inserted_profile
+    user_entity.profile = profile_entity;
+    await user_repo.save(user_entity);
     res.send('User saved');
 });
 //put method using name in params

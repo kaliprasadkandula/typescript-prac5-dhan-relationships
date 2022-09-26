@@ -1,5 +1,6 @@
 import express from 'express';
 import { User } from '../entities/userEntity';
+import {Profile} from '../entities/profileEntity';
 const user_router:express.Router = express.Router();
 const {AppDataSource}=require('../connection') 
 
@@ -42,10 +43,17 @@ user_router.delete('/:id',async (req, res) => {
 user_router.post('/',async (req, res) => {
     const rb=req.body
     const user_repo=await AppDataSource.getRepository(User)
+    const profile_repo=await AppDataSource.getRepository(Profile)
+    const profile_entity=new Profile()
+    profile_entity.gender = rb.gender
+    profile_entity.age = rb.age
+    // const inserted_profile=await profile_repo.save(profile_entity)
     const user_entity=new User();
     user_entity.name = rb.name;
     user_entity.Gmail = rb.Gmail;
-    user_repo.save(user_entity)
+    // user_entity.profile=inserted_profile
+    user_entity.profile=profile_entity
+    await user_repo.save(user_entity)
     res.send('User saved')
 
 })
