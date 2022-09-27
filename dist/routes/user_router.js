@@ -8,6 +8,7 @@ const userEntity_1 = require("../entities/userEntity");
 const profileEntity_1 = require("../entities/profileEntity");
 const user_router = express_1.default.Router();
 const { AppDataSource } = require('../connection');
+//import {AppDataSource} from '../connection' //not working showing errors
 // console.log(AppDataSource,'inside user router')
 //get all users present in the database //with one to one relationship
 user_router.get('/', async (req, res) => {

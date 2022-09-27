@@ -4,7 +4,7 @@ import {Profile} from '../entities/profileEntity';
 import { EntityManager } from 'typeorm';
 const user_router:express.Router = express.Router();
 const {AppDataSource}=require('../connection') 
-
+//import {AppDataSource} from '../connection' //not working showing errors
 // console.log(AppDataSource,'inside user router')
 
 
