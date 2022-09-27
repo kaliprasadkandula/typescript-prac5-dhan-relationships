@@ -27,7 +27,7 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "Gmail", void 0);
 __decorate([
-    (0, typeorm_1.OneToOne)(() => profileEntity_1.Profile, { cascade: true }),
+    (0, typeorm_1.OneToOne)(() => profileEntity_1.Profile, { cascade: true, eager: true, onDelete: "CASCADE" }),
     (0, typeorm_1.JoinColumn)(),
     __metadata("design:type", profileEntity_1.Profile)
 ], User.prototype, "profile", void 0);
