@@ -23,7 +23,7 @@ __decorate([
     __metadata("design:type", String)
 ], Hashtag.prototype, "tag", void 0);
 __decorate([
-    (0, typeorm_1.ManyToMany)(() => tweetEntity_1.Tweet, (tweet) => tweet.hashtags, { onDelete: 'CASCADE' }),
+    (0, typeorm_1.ManyToMany)(() => tweetEntity_1.Tweet, (tweet) => tweet.hashtags, { onDelete: "CASCADE" }),
     __metadata("design:type", Array)
 ], Hashtag.prototype, "tweets", void 0);
 Hashtag = __decorate([

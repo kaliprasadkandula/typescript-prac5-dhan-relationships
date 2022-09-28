@@ -1,14 +1,21 @@
-import {Entity,BaseEntity,PrimaryGeneratedColumn,Column, ManyToMany, JoinColumn, JoinTable} from 'typeorm'
-import {Tweet} from './tweetEntity'
+import {
+  Entity,
+  BaseEntity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToMany,
+  JoinColumn,
+  JoinTable,
+} from "typeorm";
+import { Tweet } from "./tweetEntity";
 
 @Entity()
 export class Hashtag extends BaseEntity {
- 
   @PrimaryGeneratedColumn()
-  id: number
+  id: number;
   @Column()
-  tag: string
+  tag: string;
 
-  @ManyToMany(()=>Tweet,(tweet)=>tweet.hashtags,{onDelete:'CASCADE'}) 
-  tweets: Tweet[] 
+  @ManyToMany(() => Tweet, (tweet) => tweet.hashtags, { onDelete: "CASCADE" })
+  tweets: Tweet[];
 }
